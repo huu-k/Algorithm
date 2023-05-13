@@ -1,16 +1,15 @@
-import sys
 import heapq
+import sys
 input = sys.stdin.readline
-
-min_heap = []
-
-for _ in range(int(input())):
-    n = int(input())
-    
-    if n == 0:
-        if len(min_heap):
-            print(heapq.heappop(min_heap))
-        else:
-            print(0)
+q = []#우선순위 큐
+n = int(input())
+for _ in range(n):
+    x = int(input())
+    if x != 0:
+        heapq.heappush(q, x)
     else:
-        heapq.heappush(min_heap, n)
+        if len(q)==0:
+            print('0')
+        else:
+            print(heapq.heappop(q))
+
